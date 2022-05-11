@@ -7,8 +7,8 @@ public class EmpleadoConCargo implements Empleado {
 	private String nombre;
 	private double salario;
 	private String cargo;
-	private Empleados empleados; // preguntar si esta bien
-	private double salarioTotal = 0;
+	private Empleados empleados; // esta bien, usar esto
+
 	private List<Empleado> empleadosLista;
 
 	public EmpleadoConCargo(double salario, String cargo, List<Empleado> empleados, String nombre) {
@@ -22,14 +22,16 @@ public class EmpleadoConCargo implements Empleado {
 	@Override
 	public double salarioTotal() {
 
+		double montoTotal = this.salario;
 		for (Empleado empleado : empleadosLista) {
-			return this.salario + empleado.salarioTotal();
+			montoTotal += empleado.salarioTotal();
 
 		}
 
-		return salarioTotal;
+		return montoTotal;
 	}
 
+	@Override
 	public void añadirEmpleado(Empleado empleado) {
 		// empleados.añadir(empleado);
 		empleadosLista.add(empleado);
