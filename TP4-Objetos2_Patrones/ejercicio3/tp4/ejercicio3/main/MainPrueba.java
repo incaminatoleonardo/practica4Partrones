@@ -17,10 +17,10 @@ public class MainPrueba {
 		Seguros listaSeguros = new Seguros(new ArrayList<>());
 		PaqueteDeSeguros paqueteDeSeguros = new PaqueteDeSeguros(listaSeguros, 0.05);
 
-		Seguro hogar = new Hogar(10);
-		Seguro automovil = new Automovil(20);
-		Seguro vida = new Vida(30);
-		Seguro medico = new Medico(40);
+		Seguro hogar = new Hogar(2000);
+		Seguro automovil = new Automovil(1000);
+		Seguro vida = new Vida(770);
+		Seguro medico = new Medico(652);
 
 		paqueteDeSeguros.añadirSeguro(hogar);
 		paqueteDeSeguros.añadirSeguro(hogar);

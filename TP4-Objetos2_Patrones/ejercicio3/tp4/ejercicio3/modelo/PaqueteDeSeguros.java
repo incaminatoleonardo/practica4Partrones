@@ -22,7 +22,7 @@ public class PaqueteDeSeguros implements Seguro {
 			costoTotal += seguro.costoSeguro();
 			cantidadSeguros++;
 		}
-		costoTotal += costoTotal * (cantidadSeguros * porcetaje);
+		costoTotal -= costoTotal * (cantidadSeguros * porcetaje);
 		return costoTotal;
 	}
 

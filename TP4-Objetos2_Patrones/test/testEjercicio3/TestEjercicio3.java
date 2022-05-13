@@ -17,7 +17,7 @@ import tp4.ejercicio3.modelo.Vida;
 class TestEjercicio3 {
 
 	@Test
-	void testCostoTotal() { // no se me ocurre otro test
+	void testCostoTotal98() { // no se me ocurre otro test
 		// SETUP
 		Seguros listaSeguros = new Seguros(new ArrayList<>());
 		PaqueteDeSeguros paqueteDeSeguros = new PaqueteDeSeguros(listaSeguros, 0.05);
@@ -34,7 +34,34 @@ class TestEjercicio3 {
 		paqueteDeSeguros.añadirSeguro(vida);
 		paqueteDeSeguros.añadirSeguro(medico);
 
-		double resultadoEsperado = 182;
+		double resultadoEsperado = 98;
+
+		// EXERCISE
+		double resultado = paqueteDeSeguros.costoSeguro();
+
+		// VERIFY
+		assertEquals(resultadoEsperado, resultado, 0.01);
+	}
+
+	@Test
+	void testCostoTotal5034() { // no se me ocurre otro test
+		// SETUP
+		Seguros listaSeguros = new Seguros(new ArrayList<>());
+		PaqueteDeSeguros paqueteDeSeguros = new PaqueteDeSeguros(listaSeguros, 0.05);
+
+		Seguro hogar = new Hogar(2000);
+		Seguro automovil = new Automovil(1000);
+		Seguro vida = new Vida(770);
+		Seguro medico = new Medico(652);
+
+		paqueteDeSeguros.añadirSeguro(hogar);
+		paqueteDeSeguros.añadirSeguro(hogar);
+		paqueteDeSeguros.añadirSeguro(automovil);
+		paqueteDeSeguros.añadirSeguro(vida);
+		paqueteDeSeguros.añadirSeguro(vida);
+		paqueteDeSeguros.añadirSeguro(medico);
+
+		double resultadoEsperado = 5034.4;
 
 		// EXERCISE
 		double resultado = paqueteDeSeguros.costoSeguro();

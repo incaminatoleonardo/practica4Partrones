@@ -11,7 +11,7 @@ import ejercicio1.modelo.EmpleadoRegular;
 class TestEjercicio1 {
 
 	@Test
-	void testSalarioTotal() { // no se me ocurre el otro caso test
+	void testSalarioTotal180() { // no se me ocurre el otro caso test
 
 		// SETUP
 		Empleado julioDirector = new EmpleadoConCargo(50, "Director", "julio");
@@ -30,6 +30,35 @@ class TestEjercicio1 {
 		brinaLider.añadirEmpleado(juanRegular);
 
 		double resultadoEsperado = 180;
+
+		// EXERCISE
+		double resultado = julioDirector.salarioTotal();
+
+		// VERIFY
+		assertEquals(resultadoEsperado, resultado, 0.01);
+
+	}
+
+	@Test
+	void testSalarioTotal435() { // no se me ocurre el otro caso test
+
+		// SETUP
+		Empleado julioDirector = new EmpleadoConCargo(110, "Director", "julio");
+		Empleado nataliaGerente = new EmpleadoConCargo(90, "Gerente", "natalia");
+		Empleado joseMedio = new EmpleadoConCargo(75, "Medio", "jose");
+		Empleado brinaLider = new EmpleadoConCargo(50, "Lider", "brina");
+		Empleado pazLider = new EmpleadoConCargo(50, "Lider", "paz");
+		Empleado robertoRegular = new EmpleadoRegular(30);
+		Empleado juanRegular = new EmpleadoRegular(30);
+
+		julioDirector.añadirEmpleado(nataliaGerente);
+		nataliaGerente.añadirEmpleado(joseMedio);
+		joseMedio.añadirEmpleado(brinaLider);
+		joseMedio.añadirEmpleado(pazLider);
+		pazLider.añadirEmpleado(robertoRegular);
+		brinaLider.añadirEmpleado(juanRegular);
+
+		double resultadoEsperado = 435;
 
 		// EXERCISE
 		double resultado = julioDirector.salarioTotal();

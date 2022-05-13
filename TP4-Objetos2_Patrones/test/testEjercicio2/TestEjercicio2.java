@@ -12,7 +12,7 @@ import tp4.ejercicio2.modelo.Tarea;
 class TestEjercicio2 {
 
 	@Test
-	void testTiempoTotal() { // no se me ocurre el otro test
+	void testTiempoTotal16() { // no se me ocurre el otro test
 
 		// SETUP
 		HistoriasDeUsusarios historiaUsuario1 = new HistoriasDeUsusarios("registrar", 3);
@@ -31,6 +31,35 @@ class TestEjercicio2 {
 		historiaUsuario1.agregarItemScrum(tarea3);
 
 		int resultadoEsperado = 16;
+
+		// EXERCISE
+		int resultado = historiaUsuario1.calcularTiempo();
+
+		// VERIFY
+		assertEquals(resultadoEsperado, resultado);
+
+	}
+
+	@Test
+	void testTiempoTotal50() { // no se me ocurre el otro test
+
+		// SETUP
+		HistoriasDeUsusarios historiaUsuario1 = new HistoriasDeUsusarios("registrar", 25);
+		HistoriasDeUsusarios historiaUsuario2 = new HistoriasDeUsusarios("ingresar", 8);
+		ItemScrum spike1 = new Spike("pagar", 5);
+		ItemScrum spike2 = new Spike("validar", 6);
+		ItemScrum tarea1 = new Tarea("corregir pago", 2);
+		ItemScrum tarea2 = new Tarea("corregir validacion", 3);
+		ItemScrum tarea3 = new Tarea("sumar deuda", 1);
+
+		historiaUsuario1.agregarItemScrum(historiaUsuario2);
+		historiaUsuario1.agregarItemScrum(spike1);
+		historiaUsuario1.agregarItemScrum(spike2);
+		historiaUsuario1.agregarItemScrum(tarea1);
+		historiaUsuario1.agregarItemScrum(tarea2);
+		historiaUsuario1.agregarItemScrum(tarea3);
+
+		int resultadoEsperado = 50;
 
 		// EXERCISE
 		int resultado = historiaUsuario1.calcularTiempo();
