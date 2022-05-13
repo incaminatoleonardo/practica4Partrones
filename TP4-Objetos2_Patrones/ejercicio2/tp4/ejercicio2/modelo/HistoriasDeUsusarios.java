@@ -1,33 +1,39 @@
 package tp4.ejercicio2.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class HistoriasDeUsusarios implements ItemsScrum {
+public class HistoriasDeUsusarios implements ItemScrum {
 
 	private String nombre;
 	private int semanas;
-	private List<ItemsScrum> listaItems; // esto deberia sacarlo a otra clase
+	private ItemsScrum items;
 
-	public HistoriasDeUsusarios(String nombre, int semanas, List<ItemsScrum> listaItems) {
+	public HistoriasDeUsusarios(String nombre, int semanas) {
 		super();
 		this.nombre = nombre;
 		this.semanas = semanas;
-		this.listaItems = listaItems;
+		this.items = new ItemsScrum(new ArrayList<>()); // lo mejor es que empleados vaya en constructor, para hacer
+														// inyeccion de dependencia
 	}
 
 	@Override
 	public int calcularTiempo() {
 
 		int tiempoTotal = semanas;
-		for (ItemsScrum itemsScrum : listaItems) {
+		for (ItemScrum itemsScrum : this.obtenerItemsScrum()) {
 			tiempoTotal += itemsScrum.calcularTiempo();
 		}
 
 		return tiempoTotal;
 	}
 
-	public void agregarItemScrum(ItemsScrum item) {
-		listaItems.add(item);
+	public void agregarItemScrum(ItemScrum item) {
+		items.agregarItemScrum(item);
+	}
+
+	public List<ItemScrum> obtenerItemsScrum() {
+		return items.obtenerItemsScrum();
 	}
 
 }

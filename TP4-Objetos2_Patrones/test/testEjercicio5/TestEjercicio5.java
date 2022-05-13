@@ -14,7 +14,7 @@ class TestEjercicio5 {
 	void testImportada() {
 		// SETUP
 		Remeras importada = new Importadas(10);
-		double resultadoEsperado = 13.5;
+		double resultadoEsperado = 13.3;
 
 		// EXERCISE
 		double resultado = importada.costoTotal();
@@ -27,7 +27,7 @@ class TestEjercicio5 {
 	void testNacional() {
 		// SETUP
 		Remeras nacional = new Nacionales(10);
-		double resultadoEsperado = 13.65;
+		double resultadoEsperado = 9.65;
 
 		// EXERCISE
 		double resultado = nacional.costoTotal();

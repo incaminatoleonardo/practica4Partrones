@@ -1,6 +1,6 @@
 package tp4.ejercicio2.modelo;
 
-public class Spike implements ItemsScrum {
+public class Spike implements ItemScrum {
 
 	private String nombre;
 	private int semanas;

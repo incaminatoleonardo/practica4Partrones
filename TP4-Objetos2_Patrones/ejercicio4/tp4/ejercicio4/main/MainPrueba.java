@@ -10,9 +10,10 @@ public class MainPrueba {
 	public static void main(String[] args) {
 
 		Calculador jubilado = new CalculadorJubilado(new LogTransaction(), 4, 0.1);
-		CalculadorNoJubilado noJubilado = new CalculadorNoJubilado(new LogTransaction(), 5, 0.21);
+		Calculador noJubilado = new CalculadorNoJubilado(new LogTransaction(), 5, 0.21);
 
 		System.out.println(jubilado.calcularPrecio(10));
+		System.out.println(noJubilado.calcularPrecio(10));
 
 	}
 

@@ -1,13 +1,19 @@
-package ejercicio1.main;
+package testEjercicio1;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 import ejercicio1.modelo.Empleado;
 import ejercicio1.modelo.EmpleadoConCargo;
 import ejercicio1.modelo.EmpleadoRegular;
 
-public class MainPrueba {
+class TestEjercicio1 {
 
-	public static void main(String[] args) {
+	@Test
+	void testSalarioTotal() { // no se me ocurre el otro caso test
 
+		// SETUP
 		Empleado julioDirector = new EmpleadoConCargo(50, "Director", "julio");
 		Empleado nataliaGerente = new EmpleadoConCargo(40, "Gerente", "natalia");
 		Empleado joseMedio = new EmpleadoConCargo(30, "Medio", "jose");
@@ -23,7 +29,13 @@ public class MainPrueba {
 		pazLider.añadirEmpleado(robertoRegular);
 		brinaLider.añadirEmpleado(juanRegular);
 
-		System.out.println(julioDirector.salarioTotal());
+		double resultadoEsperado = 180;
+
+		// EXERCISE
+		double resultado = julioDirector.salarioTotal();
+
+		// VERIFY
+		assertEquals(resultadoEsperado, resultado, 0.01);
 
 	}
 

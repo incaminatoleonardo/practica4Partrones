@@ -1,14 +1,20 @@
-package tp4.ejercicio2.main;
+package testEjercicio2;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
 
 import tp4.ejercicio2.modelo.HistoriasDeUsusarios;
 import tp4.ejercicio2.modelo.ItemScrum;
 import tp4.ejercicio2.modelo.Spike;
 import tp4.ejercicio2.modelo.Tarea;
 
-public class MainPrueba {
+class TestEjercicio2 {
 
-	public static void main(String[] args) {
+	@Test
+	void testTiempoTotal() { // no se me ocurre el otro test
 
+		// SETUP
 		HistoriasDeUsusarios historiaUsuario1 = new HistoriasDeUsusarios("registrar", 3);
 		HistoriasDeUsusarios historiaUsuario2 = new HistoriasDeUsusarios("ingresar", 4);
 		ItemScrum spike1 = new Spike("pagar", 3);
@@ -24,7 +30,13 @@ public class MainPrueba {
 		historiaUsuario1.agregarItemScrum(tarea2);
 		historiaUsuario1.agregarItemScrum(tarea3);
 
-		System.out.println(historiaUsuario1.calcularTiempo());
+		int resultadoEsperado = 16;
+
+		// EXERCISE
+		int resultado = historiaUsuario1.calcularTiempo();
+
+		// VERIFY
+		assertEquals(resultadoEsperado, resultado);
 
 	}
 

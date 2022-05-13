@@ -1,12 +1,33 @@
 package tp4.ejercicio5.modelo;
 
-public abstract class Remeras { // hacer calcular porcentaje de los distintos impuestos, por ejemplo
-								// calcularImpuestoAduana(). Y luego sumar y restar todo aca
+public abstract class Remeras {
 
-	public double costoTotal() {
-		return this.carlcularPorcentaje();
+	protected double precio;
+
+	public Remeras(double precio) {
+		super();
+		this.precio = precio;
 	}
 
-	abstract double carlcularPorcentaje();
+	public double costoTotal() {
+
+		double costoTotal = precio;
+		costoTotal += precio * this.impuestoAduana() + precio * this.recargo() + precio * this.costoTransporte()
+				- precio * this.bonificacion() + precio * this.impuestoComercio(); // aca bonificacion lo tome como un
+																					// descuento de precio
+
+		return costoTotal;
+
+	}
+
+	protected abstract double recargo();
+
+	protected abstract double impuestoAduana();
+
+	protected abstract double costoTransporte();
+
+	protected abstract double bonificacion();
+
+	protected abstract double impuestoComercio();
 
 }

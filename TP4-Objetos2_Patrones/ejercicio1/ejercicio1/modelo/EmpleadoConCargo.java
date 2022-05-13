@@ -1,5 +1,6 @@
 package ejercicio1.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmpleadoConCargo implements Empleado {
@@ -7,15 +8,14 @@ public class EmpleadoConCargo implements Empleado {
 	private String nombre;
 	private double salario;
 	private String cargo;
-	private Empleados empleados; // esta bien, usar esto
+	private Empleados empleados;
 
-	private List<Empleado> empleadosLista;
-
-	public EmpleadoConCargo(double salario, String cargo, List<Empleado> empleados, String nombre) {
+	public EmpleadoConCargo(double salario, String cargo, String nombre) {
 		super();
 		this.salario = salario;
 		this.cargo = cargo;
-		this.empleadosLista = empleados;
+		this.empleados = new Empleados(new ArrayList<>()); // lo mejor es que empleados vaya en constructor, para hacer
+															// inyeccion de dependencia
 		this.nombre = nombre;
 	}
 
@@ -23,7 +23,7 @@ public class EmpleadoConCargo implements Empleado {
 	public double salarioTotal() {
 
 		double montoTotal = this.salario;
-		for (Empleado empleado : empleadosLista) {
+		for (Empleado empleado : this.obtenerEmpleado()) {
 			montoTotal += empleado.salarioTotal();
 
 		}
@@ -33,8 +33,8 @@ public class EmpleadoConCargo implements Empleado {
 
 	@Override
 	public void añadirEmpleado(Empleado empleado) {
-		// empleados.añadir(empleado);
-		empleadosLista.add(empleado);
+		empleados.añadir(empleado);
+
 	}
 
 	public List<Empleado> obtenerEmpleado() {

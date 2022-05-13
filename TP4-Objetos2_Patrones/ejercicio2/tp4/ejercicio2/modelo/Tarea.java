@@ -1,6 +1,6 @@
 package tp4.ejercicio2.modelo;
 
-public class Tarea implements ItemsScrum {
+public class Tarea implements ItemScrum {
 
 	private String nombre;
 	private int semanas;
